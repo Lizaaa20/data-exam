@@ -1,0 +1,9 @@
+.env
+*.bak
+*.mdf
+*.ldf
+*.ndf
+__pycache__/
+.venv/
+node_modules/
+.ipynb_checkpoints/ 
