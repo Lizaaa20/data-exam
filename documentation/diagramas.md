@@ -109,3 +109,106 @@ flowchart TD
     X -. error .-> ERR["Cerrar ejecución<br/>FAILED con error_detail"]
     FACT -. error .-> ERR
 ```
+
+
+## 4. ERD de la fuente (WWI_Source, tablas relevantes)
+
+```mermaid
+erDiagram
+    Customers ||--o{ Invoices : "CustomerID"
+    Customers ||--o{ Orders : "CustomerID"
+    Orders ||--o{ Invoices : "OrderID"
+    Invoices ||--|{ InvoiceLines : "InvoiceID"
+    StockItems ||--o{ InvoiceLines : "StockItemID"
+    StockItems ||--o{ StockItemStockGroups : "StockItemID"
+    StockGroups ||--o{ StockItemStockGroups : "StockGroupID"
+    Colors ||--o{ StockItems : "ColorID"
+    People ||--o{ Invoices : "SalespersonPersonID"
+    CustomerCategories ||--o{ Customers : "CustomerCategoryID"
+    BuyingGroups ||--o{ Customers : "BuyingGroupID"
+    Cities ||--o{ Customers : "DeliveryCityID"
+    StateProvinces ||--o{ Cities : "StateProvinceID"
+    Countries ||--o{ StateProvinces : "CountryID"
+
+    Invoices {
+        int InvoiceID PK
+        int CustomerID FK
+        int OrderID FK
+        int SalespersonPersonID FK
+        date InvoiceDate
+        datetime2 LastEditedWhen
+    }
+    InvoiceLines {
+        int InvoiceLineID PK
+        int InvoiceID FK
+        int StockItemID FK
+        int Quantity
+        decimal UnitPrice
+        decimal TaxAmount
+        decimal LineProfit
+        decimal ExtendedPrice
+        datetime2 LastEditedWhen
+    }
+    Orders {
+        int OrderID PK
+        int CustomerID FK
+        int BackorderOrderID
+        date OrderDate
+    }
+    Customers {
+        int CustomerID PK
+        nvarchar CustomerName
+        int CustomerCategoryID FK
+        int BuyingGroupID FK
+        int DeliveryCityID FK
+        datetime2 ValidFrom
+        datetime2 ValidTo
+    }
+    StockItems {
+        int StockItemID PK
+        nvarchar StockItemName
+        nvarchar Brand
+        nvarchar Size
+        int ColorID FK
+    }
+    Colors {
+        int ColorID PK
+        nvarchar ColorName
+    }
+    StockGroups {
+        int StockGroupID PK
+        nvarchar StockGroupName
+    }
+    StockItemStockGroups {
+        int StockItemStockGroupID PK
+        int StockItemID FK
+        int StockGroupID FK
+    }
+    People {
+        int PersonID PK
+        nvarchar FullName
+    }
+    CustomerCategories {
+        int CustomerCategoryID PK
+        nvarchar CustomerCategoryName
+    }
+    BuyingGroups {
+        int BuyingGroupID PK
+        nvarchar BuyingGroupName
+    }
+    Cities {
+        int CityID PK
+        nvarchar CityName
+        int StateProvinceID FK
+    }
+    StateProvinces {
+        int StateProvinceID PK
+        nvarchar StateProvinceName
+        int CountryID FK
+    }
+    Countries {
+        int CountryID PK
+        nvarchar CountryName
+        nvarchar Region
+    }
+```
