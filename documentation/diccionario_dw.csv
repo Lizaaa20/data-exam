@@ -1,0 +1,22 @@
+USE WWI_DW;
+SELECT
+    t.name                AS tabla,
+    c.column_id           AS orden,
+    c.name                AS columna,
+    ty.name + CASE
+        WHEN ty.name IN ('nvarchar','varchar','char') THEN '(' + CAST(c.max_length / CASE WHEN ty.name = 'nvarchar' THEN 2 ELSE 1 END AS VARCHAR(10)) + ')'
+        WHEN ty.name = 'decimal' THEN '(' + CAST(c.precision AS VARCHAR(10)) + ',' + CAST(c.scale AS VARCHAR(10)) + ')'
+        ELSE '' END       AS tipo,
+    CASE c.is_nullable WHEN 1 THEN 'Sí' ELSE 'No' END AS admite_nulos,
+    CASE WHEN pk.column_id IS NOT NULL THEN 'PK' ELSE '' END AS clave
+FROM sys.tables t
+JOIN sys.columns c  ON c.object_id = t.object_id
+JOIN sys.types ty   ON ty.user_type_id = c.user_type_id
+LEFT JOIN (
+    SELECT ic.object_id, ic.column_id
+    FROM sys.indexes i
+    JOIN sys.index_columns ic ON ic.object_id = i.object_id AND ic.index_id = i.index_id
+    WHERE i.is_primary_key = 1
+) pk ON pk.object_id = c.object_id AND pk.column_id = c.column_id
+WHERE SCHEMA_NAME(t.schema_id) = 'dw'
+ORDER BY t.name, c.column_id;
