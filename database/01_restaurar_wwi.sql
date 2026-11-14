@@ -1,5 +1,6 @@
+-- Confirmar nombres lógicos del backup
 RESTORE FILELISTONLY
-FROM DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\WideWorldImporters-Full.bak';
+FROM DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\WideWorldImporters-Standard.bak';
 
 USE master;
 GO
@@ -8,12 +9,11 @@ DECLARE @log  NVARCHAR(260) = CONVERT(NVARCHAR(260), SERVERPROPERTY('InstanceDef
 
 DECLARE @sql NVARCHAR(MAX) = N'
 RESTORE DATABASE WWI_Source
-FROM DISK = N''C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\WideWorldImporters-Full.bak''
+FROM DISK = N''C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\WideWorldImporters-Standard.bak''
 WITH
-  MOVE N''WWI_Primary''         TO N''' + @data + N'WWI_Source.mdf'',
-  MOVE N''WWI_UserData''        TO N''' + @data + N'WWI_Source_UserData.ndf'',
-  MOVE N''WWI_Log''             TO N''' + @log  + N'WWI_Source.ldf'',
-  MOVE N''WWI_InMemory_Data_1'' TO N''' + @data + N'WWI_Source_InMemory_Data_1'',
+  MOVE N''WWI_Primary''  TO N''' + @data + N'WWI_Source.mdf'',
+  MOVE N''WWI_UserData'' TO N''' + @data + N'WWI_Source_UserData.ndf'',
+  MOVE N''WWI_Log''      TO N''' + @log  + N'WWI_Source.ldf'',
   STATS = 10, REPLACE;';
 EXEC sp_executesql @sql;
 GO

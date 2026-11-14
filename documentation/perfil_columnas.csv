@@ -1,0 +1,174 @@
+﻿run_id,esquema,tabla,columna,tipo,filas,nulos,pct_nulos,distintos,minimo,maximo,vacios,con_espacios_extremos
+20261114_090230,Sales,Invoices,InvoiceID,int,70510,0,0.0,70510.0,1,70510,,
+20261114_090230,Sales,Invoices,CustomerID,int,70510,0,0.0,663.0,1,1061,,
+20261114_090230,Sales,Invoices,BillToCustomerID,int,70510,0,0.0,263.0,1,1061,,
+20261114_090230,Sales,Invoices,OrderID,int,70510,0,0.0,70510.0,1,73586,,
+20261114_090230,Sales,Invoices,DeliveryMethodID,int,70510,0,0.0,1.0,3,3,,
+20261114_090230,Sales,Invoices,ContactPersonID,int,70510,0,0.0,663.0,1001,3261,,
+20261114_090230,Sales,Invoices,AccountsPersonID,int,70510,0,0.0,263.0,1001,3261,,
+20261114_090230,Sales,Invoices,SalespersonPersonID,int,70510,0,0.0,10.0,2,20,,
+20261114_090230,Sales,Invoices,PackedByPersonID,int,70510,0,0.0,19.0,2,20,,
+20261114_090230,Sales,Invoices,InvoiceDate,date,70510,0,0.0,1069.0,2013-01-01,2016-05-31,,
+20261114_090230,Sales,Invoices,CustomerPurchaseOrderNumber,nvarchar,70510,0,0.0,9984.0,10001,20000,0.0,0.0
+20261114_090230,Sales,Invoices,IsCreditNote,bit,70510,0,0.0,1.0,0,0,,
+20261114_090230,Sales,Invoices,CreditNoteReason,nvarchar,70510,70510,100.0,0.0,,,0.0,0.0
+20261114_090230,Sales,Invoices,Comments,nvarchar,70510,70510,100.0,0.0,,,0.0,0.0
+20261114_090230,Sales,Invoices,DeliveryInstructions,nvarchar,70510,0,0.0,663.0,"Shop 10, 1235 Lana Lane","Unit 95, 882 Bhuiyan Crescent",0.0,0.0
+20261114_090230,Sales,Invoices,InternalComments,nvarchar,70510,70510,100.0,0.0,,,0.0,0.0
+20261114_090230,Sales,Invoices,TotalDryItems,int,70510,0,0.0,6.0,0,5,,
+20261114_090230,Sales,Invoices,TotalChillerItems,int,70510,0,0.0,4.0,0,3,,
+20261114_090230,Sales,Invoices,DeliveryRun,nvarchar,70510,3858,5.47,1.0,,,66652.0,0.0
+20261114_090230,Sales,Invoices,RunPosition,nvarchar,70510,3858,5.47,1.0,,,66652.0,0.0
+20261114_090230,Sales,Invoices,ReturnedDeliveryData,nvarchar,70510,0,0.0,70510.0,"{""Events"": [{ ""Event"":""Ready for collection"",""EventTime"":""2013-01-01T12:00:00"",""ConNote"":""EAN-125-1051""},{ ""Event"":""DeliveryAttempt"",""EventTime"":""2013-01-02T07:05:00"",""ConNote"":""EAN-125-1051"",""DriverID"":15,""Latitude"":41.3617214,""Longitude"":-81.4695602,""Status"":""Delivered""}],""DeliveredWhen"":""2013-01-02T07:05:00"",""ReceivedBy"":""Aakriti Byrraju""}","{""Events"": [{ ""Event"":""Ready for collection"",""EventTime"":""2016-05-31T12:00:00"",""ConNote"":""EAN-125-71560""}]}",0.0,0.0
+20261114_090230,Sales,Invoices,ConfirmedDeliveryTime,datetime2,70510,84,0.12,70426.0,2013-01-02 07:05:00,2016-05-31 13:30:00,,
+20261114_090230,Sales,Invoices,ConfirmedReceivedBy,nvarchar,70510,84,0.12,663.0,Aahlada Thota,Zuzana Kuchtova,0.0,0.0
+20261114_090230,Sales,Invoices,LastEditedBy,int,70510,0,0.0,19.0,2,20,,
+20261114_090230,Sales,Invoices,LastEditedWhen,datetime2,70510,0,0.0,1069.0,2013-01-02 07:00:00,2016-05-31 12:00:00,,
+20261114_090230,Sales,InvoiceLines,InvoiceLineID,int,228265,0,0.0,228265.0,1,228265,,
+20261114_090230,Sales,InvoiceLines,InvoiceID,int,228265,0,0.0,70510.0,1,70510,,
+20261114_090230,Sales,InvoiceLines,StockItemID,int,228265,0,0.0,227.0,1,227,,
+20261114_090230,Sales,InvoiceLines,Description,nvarchar,228265,0,0.0,227.0,"""The Gu"" red shirt XML tag t-shirt (Black) 3XL",White chocolate snow balls 250g,0.0,0.0
+20261114_090230,Sales,InvoiceLines,PackageTypeID,int,228265,0,0.0,4.0,1,10,,
+20261114_090230,Sales,InvoiceLines,Quantity,int,228265,0,0.0,61.0,1,360,,
+20261114_090230,Sales,InvoiceLines,UnitPrice,decimal,228265,0,0.0,62.0,0.66,1899.00,,
+20261114_090230,Sales,InvoiceLines,TaxRate,decimal,228265,0,0.0,2.0,10.000,15.000,,
+20261114_090230,Sales,InvoiceLines,TaxAmount,decimal,228265,0,0.0,493.0,0.38,2848.50,,
+20261114_090230,Sales,InvoiceLines,LineProfit,decimal,228265,0,0.0,570.0,-645.00,9200.00,,
+20261114_090230,Sales,InvoiceLines,ExtendedPrice,decimal,228265,0,0.0,497.0,2.88,21838.50,,
+20261114_090230,Sales,InvoiceLines,LastEditedBy,int,228265,0,0.0,19.0,2,20,,
+20261114_090230,Sales,InvoiceLines,LastEditedWhen,datetime2,228265,0,0.0,1069.0,2013-01-01 12:00:00,2016-05-31 12:00:00,,
+20261114_090230,Sales,Orders,OrderID,int,73595,0,0.0,73595.0,1,73595,,
+20261114_090230,Sales,Orders,CustomerID,int,73595,0,0.0,663.0,1,1061,,
+20261114_090230,Sales,Orders,SalespersonPersonID,int,73595,0,0.0,10.0,2,20,,
+20261114_090230,Sales,Orders,PickedByPersonID,int,73595,10623,14.43,19.0,2,20,,
+20261114_090230,Sales,Orders,ContactPersonID,int,73595,0,0.0,663.0,1001,3261,,
+20261114_090230,Sales,Orders,BackorderOrderID,int,73595,66057,89.76,7538.0,45,73595,,
+20261114_090230,Sales,Orders,OrderDate,date,73595,0,0.0,1069.0,2013-01-01,2016-05-31,,
+20261114_090230,Sales,Orders,ExpectedDeliveryDate,date,73595,0,0.0,891.0,2013-01-02,2016-06-01,,
+20261114_090230,Sales,Orders,CustomerPurchaseOrderNumber,nvarchar,73595,0,0.0,9984.0,10001,20000,0.0,0.0
+20261114_090230,Sales,Orders,IsUndersupplyBackordered,bit,73595,0,0.0,1.0,1,1,,
+20261114_090230,Sales,Orders,Comments,nvarchar,73595,73595,100.0,0.0,,,0.0,0.0
+20261114_090230,Sales,Orders,DeliveryInstructions,nvarchar,73595,73595,100.0,0.0,,,0.0,0.0
+20261114_090230,Sales,Orders,InternalComments,nvarchar,73595,73595,100.0,0.0,,,0.0,0.0
+20261114_090230,Sales,Orders,PickingCompletedWhen,datetime2,73595,3085,4.19,2124.0,2013-01-01 11:00:00,2016-05-31 12:00:00,,
+20261114_090230,Sales,Orders,LastEditedBy,int,73595,0,0.0,20.0,1,20,,
+20261114_090230,Sales,Orders,LastEditedWhen,datetime2,73595,0,0.0,2129.0,2013-01-01 11:00:00,2016-05-31 12:00:00,,
+20261114_090230,Sales,Customers,CustomerID,int,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,CustomerName,nvarchar,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,BillToCustomerID,int,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,CustomerCategoryID,int,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,BuyingGroupID,int,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,PrimaryContactPersonID,int,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,AlternateContactPersonID,int,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,DeliveryMethodID,int,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,DeliveryCityID,int,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,PostalCityID,int,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,CreditLimit,decimal,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,AccountOpenedDate,date,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,StandardDiscountPercentage,decimal,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,IsStatementSent,bit,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,IsOnCreditHold,bit,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,PaymentDays,int,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,PhoneNumber,nvarchar,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,FaxNumber,nvarchar,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,DeliveryRun,nvarchar,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,RunPosition,nvarchar,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,WebsiteURL,nvarchar,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,DeliveryAddressLine1,nvarchar,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,DeliveryAddressLine2,nvarchar,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,DeliveryPostalCode,nvarchar,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,DeliveryLocation,geography,0,0,0.0,,,,,
+20261114_090230,Sales,Customers,PostalAddressLine1,nvarchar,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,PostalAddressLine2,nvarchar,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,PostalPostalCode,nvarchar,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,LastEditedBy,int,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,ValidFrom,datetime2,0,0,0.0,0.0,,,,
+20261114_090230,Sales,Customers,ValidTo,datetime2,0,0,0.0,0.0,,,,
+20261114_090230,Warehouse,StockItems,StockItemID,int,227,0,0.0,227.0,1,227,,
+20261114_090230,Warehouse,StockItems,StockItemName,nvarchar,227,0,0.0,227.0,"""The Gu"" red shirt XML tag t-shirt (Black) 3XL",White chocolate snow balls 250g,0.0,0.0
+20261114_090230,Warehouse,StockItems,SupplierID,int,227,0,0.0,7.0,1,12,,
+20261114_090230,Warehouse,StockItems,ColorID,int,227,99,43.61,7.0,3,36,,
+20261114_090230,Warehouse,StockItems,UnitPackageID,int,227,0,0.0,4.0,1,10,,
+20261114_090230,Warehouse,StockItems,OuterPackageID,int,227,0,0.0,3.0,6,9,,
+20261114_090230,Warehouse,StockItems,Brand,nvarchar,227,209,92.07,1.0,Northwind,Northwind,0.0,0.0
+20261114_090230,Warehouse,StockItems,Size,nvarchar,227,64,28.19,43.0,1.5m,XXS,0.0,0.0
+20261114_090230,Warehouse,StockItems,LeadTimeDays,int,227,0,0.0,6.0,2,20,,
+20261114_090230,Warehouse,StockItems,QuantityPerOuter,int,227,0,0.0,9.0,1,36,,
+20261114_090230,Warehouse,StockItems,IsChillerStock,bit,227,0,0.0,2.0,0,1,,
+20261114_090230,Warehouse,StockItems,Barcode,nvarchar,227,219,96.48,8.0,8302039293647,8792838293987,0.0,0.0
+20261114_090230,Warehouse,StockItems,TaxRate,decimal,227,0,0.0,2.0,10.000,15.000,,
+20261114_090230,Warehouse,StockItems,UnitPrice,decimal,227,0,0.0,57.0,0.66,1899.00,,
+20261114_090230,Warehouse,StockItems,RecommendedRetailPrice,decimal,227,0,0.0,57.0,0.99,2839.01,,
+20261114_090230,Warehouse,StockItems,TypicalWeightPerUnit,decimal,227,0,0.0,23.0,0.050,21.000,,
+20261114_090230,Warehouse,StockItems,MarketingComments,nvarchar,227,199,87.67,7.0,Complete with 12 projectiles,Watch your friends faces when they eat these,0.0,0.0
+20261114_090230,Warehouse,StockItems,InternalComments,nvarchar,227,227,100.0,0.0,,,0.0,0.0
+20261114_090230,Warehouse,StockItems,Photo,varbinary,227,227,100.0,,,,,
+20261114_090230,Warehouse,StockItems,CustomFields,nvarchar,227,0,0.0,21.0,"{ ""CountryOfManufacture"": ""China"", ""Tags"": [""Comedy""] }","{ ""CountryOfManufacture"": ""USA"", ""ShelfLife"": ""7 days"", ""Tags"": [] }",0.0,0.0
+20261114_090230,Warehouse,StockItems,Tags,nvarchar,227,0,0.0,13.0,"[""16GB"",""USB Powered""]",[],0.0,0.0
+20261114_090230,Warehouse,StockItems,SearchDetails,nvarchar,227,0,0.0,227.0,"""The Gu"" red shirt XML tag t-shirt (Black) 3XL ",White chocolate snow balls 250g Perfect for your child's party,0.0,0.0
+20261114_090230,Warehouse,StockItems,LastEditedBy,int,227,0,0.0,1.0,1,1,,
+20261114_090230,Warehouse,StockItems,ValidFrom,datetime2,227,0,0.0,10.0,2016-05-31 23:00:00,2016-05-31 23:12:00,,
+20261114_090230,Warehouse,StockItems,ValidTo,datetime2,227,0,0.0,1.0,9999-12-31 23:59:59.999999,9999-12-31 23:59:59.999999,,
+20261114_090230,Warehouse,StockGroups,StockGroupID,int,10,0,0.0,10.0,1,10,,
+20261114_090230,Warehouse,StockGroups,StockGroupName,nvarchar,10,0,0.0,10.0,Airline Novelties,USB Novelties,0.0,0.0
+20261114_090230,Warehouse,StockGroups,LastEditedBy,int,10,0,0.0,2.0,1,9,,
+20261114_090230,Warehouse,StockGroups,ValidFrom,datetime2,10,0,0.0,2.0,2013-01-01 00:00:00,2016-01-01 16:00:00,,
+20261114_090230,Warehouse,StockGroups,ValidTo,datetime2,10,0,0.0,1.0,9999-12-31 23:59:59.999999,9999-12-31 23:59:59.999999,,
+20261114_090230,Warehouse,StockItemStockGroups,StockItemStockGroupID,int,442,0,0.0,442.0,1,442,,
+20261114_090230,Warehouse,StockItemStockGroups,StockItemID,int,442,0,0.0,227.0,1,227,,
+20261114_090230,Warehouse,StockItemStockGroups,StockGroupID,int,442,0,0.0,9.0,1,10,,
+20261114_090230,Warehouse,StockItemStockGroups,LastEditedBy,int,442,0,0.0,1.0,1,1,,
+20261114_090230,Warehouse,StockItemStockGroups,LastEditedWhen,datetime2,442,0,0.0,5.0,2013-01-01 00:00:00,2016-01-05 00:00:00,,
+20261114_090230,Application,People,PersonID,int,1111,0,0.0,1111.0,1,3261,,
+20261114_090230,Application,People,FullName,nvarchar,1111,0,0.0,1111.0,Aahlada Thota,Zuzana Kuchtova,0.0,0.0
+20261114_090230,Application,People,PreferredName,nvarchar,1111,0,0.0,880.0,Aahlada,Zuzana,0.0,0.0
+20261114_090230,Application,People,SearchName,nvarchar,1111,0,0.0,1111.0,Aahlada Aahlada Thota,Zuzana Zuzana Kuchtova,0.0,0.0
+20261114_090230,Application,People,IsPermittedToLogon,bit,1111,0,0.0,2.0,0,1,,
+20261114_090230,Application,People,LogonName,nvarchar,1111,0,0.0,156.0,aakarsha@tailspintoys.com,yves@example.com,0.0,0.0
+20261114_090230,Application,People,IsExternalLogonProvider,bit,1111,0,0.0,1.0,0,0,,
+20261114_090230,Application,People,HashedPassword,varbinary,1111,954,85.87,,,,,
+20261114_090230,Application,People,IsSystemUser,bit,1111,0,0.0,2.0,0,1,,
+20261114_090230,Application,People,IsEmployee,bit,1111,0,0.0,2.0,0,1,,
+20261114_090230,Application,People,IsSalesperson,bit,1111,0,0.0,2.0,0,1,,
+20261114_090230,Application,People,UserPreferences,nvarchar,1111,929,83.62,59.0,"{""theme"":""black-tie"",""dateFormat"":""DD, MM d, yy"",""timeZone"": ""PST"",""table"":{""pagingType"":""simple_numbers"",""pageLength"": 10},""favoritesOnDashboard"":true}","{""theme"":""ui-darkness"",""dateFormat"":""yy-mm-dd"",""timeZone"": ""PST"",""table"":{""pagingType"":""full_numbers"",""pageLength"": 25},""favoritesOnDashboard"":true}",0.0,0.0
+20261114_090230,Application,People,PhoneNumber,nvarchar,1111,1,0.09,71.0,(201) 555-0100,(907) 555-0100,0.0,0.0
+20261114_090230,Application,People,FaxNumber,nvarchar,1111,1,0.09,61.0,(201) 555-0101,(907) 555-0101,0.0,0.0
+20261114_090230,Application,People,EmailAddress,nvarchar,1111,1,0.09,1029.0,aahlada@tailspintoys.com,zuzana@wingtiptoys.com,0.0,0.0
+20261114_090230,Application,People,Photo,varbinary,1111,1111,100.0,,,,,
+20261114_090230,Application,People,CustomFields,nvarchar,1111,1092,98.29,19.0,"{ ""OtherLanguages"": [""Arabic"",""Greek""] ,""HireDate"":""2009-03-14T00:00:00"",""Title"":""Manager"",""PrimarySalesTerritory"":""Far West"",""CommissionRate"":""2.29""}","{ ""OtherLanguages"": [] ,""HireDate"":""2012-03-05T00:00:00"",""Title"":""Team Member"",""PrimarySalesTerritory"":""New England"",""CommissionRate"":""3.62""}",0.0,0.0
+20261114_090230,Application,People,OtherLanguages,nvarchar,1111,1092,98.29,17.0,"[""Arabic"",""Greek""]",[],0.0,0.0
+20261114_090230,Application,People,LastEditedBy,int,1111,0,0.0,1.0,1,1,,
+20261114_090230,Application,People,ValidFrom,datetime2,1111,0,0.0,58.0,2013-01-01 00:00:00,2016-05-31 23:14:00,,
+20261114_090230,Application,People,ValidTo,datetime2,1111,0,0.0,1.0,9999-12-31 23:59:59.999999,9999-12-31 23:59:59.999999,,
+20261114_090230,Application,Cities,CityID,int,37940,0,0.0,37940.0,1,38186,,
+20261114_090230,Application,Cities,CityName,nvarchar,37940,0,0.0,23272.0,Aaronsburg,Zwolle,0.0,0.0
+20261114_090230,Application,Cities,StateProvinceID,int,37940,0,0.0,53.0,1,53,,
+20261114_090230,Application,Cities,Location,geography,37940,0,0.0,,,,,
+20261114_090230,Application,Cities,LatestRecordedPopulation,bigint,37940,11048,29.12,9324.0,0,8175133,,
+20261114_090230,Application,Cities,LastEditedBy,int,37940,0,0.0,4.0,1,20,,
+20261114_090230,Application,Cities,ValidFrom,datetime2,37940,0,0.0,4.0,2013-01-01 00:00:00,2015-07-01 16:00:00,,
+20261114_090230,Application,Cities,ValidTo,datetime2,37940,0,0.0,1.0,9999-12-31 23:59:59.999999,9999-12-31 23:59:59.999999,,
+20261114_090230,Application,StateProvinces,StateProvinceID,int,53,0,0.0,53.0,1,53,,
+20261114_090230,Application,StateProvinces,StateProvinceCode,nvarchar,53,0,0.0,53.0,AK,WY,0.0,0.0
+20261114_090230,Application,StateProvinces,StateProvinceName,nvarchar,53,0,0.0,53.0,Alabama,Wyoming,0.0,0.0
+20261114_090230,Application,StateProvinces,CountryID,int,53,0,0.0,1.0,230,230,,
+20261114_090230,Application,StateProvinces,SalesTerritory,nvarchar,53,0,0.0,9.0,External,Southwest,0.0,0.0
+20261114_090230,Application,StateProvinces,Border,geography,53,1,1.89,,,,,
+20261114_090230,Application,StateProvinces,LatestRecordedPopulation,bigint,53,0,0.0,53.0,104737,41460453,,
+20261114_090230,Application,StateProvinces,LastEditedBy,int,53,0,0.0,4.0,1,20,,
+20261114_090230,Application,StateProvinces,ValidFrom,datetime2,53,0,0.0,9.0,2013-01-01 00:00:00,2015-07-01 16:00:00,,
+20261114_090230,Application,StateProvinces,ValidTo,datetime2,53,0,0.0,1.0,9999-12-31 23:59:59.999999,9999-12-31 23:59:59.999999,,
+20261114_090230,Application,Countries,CountryID,int,190,0,0.0,190.0,1,241,,
+20261114_090230,Application,Countries,CountryName,nvarchar,190,0,0.0,190.0,Afghanistan,Zimbabwe,0.0,0.0
+20261114_090230,Application,Countries,FormalName,nvarchar,190,0,0.0,190.0,Antigua and Barbuda,United States of America,0.0,0.0
+20261114_090230,Application,Countries,IsoAlpha3Code,nvarchar,190,0,0.0,190.0,AFG,ZWE,0.0,0.0
+20261114_090230,Application,Countries,IsoNumericCode,int,190,0,0.0,190.0,4,894,,
+20261114_090230,Application,Countries,CountryType,nvarchar,190,0,0.0,1.0,UN Member State,UN Member State,0.0,0.0
+20261114_090230,Application,Countries,LatestRecordedPopulation,bigint,190,0,0.0,190.0,14019,1392157488,,
+20261114_090230,Application,Countries,Continent,nvarchar,190,0,0.0,7.0,Africa,South America,0.0,0.0
+20261114_090230,Application,Countries,Region,nvarchar,190,0,0.0,5.0,Africa,Oceania,0.0,0.0
+20261114_090230,Application,Countries,Subregion,nvarchar,190,0,0.0,22.0,Australia and New Zealand,Western Europe,0.0,0.0
+20261114_090230,Application,Countries,Border,geography,190,0,0.0,,,,,
+20261114_090230,Application,Countries,LastEditedBy,int,190,0,0.0,4.0,1,20,,
+20261114_090230,Application,Countries,ValidFrom,datetime2,190,0,0.0,5.0,2013-01-01 00:00:00,2022-10-07 22:01:58.622602,,
+20261114_090230,Application,Countries,ValidTo,datetime2,190,0,0.0,1.0,9999-12-31 23:59:59.999999,9999-12-31 23:59:59.999999,,
