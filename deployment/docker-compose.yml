@@ -1,0 +1,12 @@
+services:
+  etl:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.etl
+    env_file: ../.env
+    environment:
+      MSSQL_HOST: host.docker.internal
+    volumes:
+      - ..:/app
+    working_dir: /app
+    command: python etl/probar_conexion.py
