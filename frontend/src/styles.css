@@ -65,3 +65,8 @@ th { color: var(--suave); font-weight: 600; }
 .sev-baja { background: #eef3ff; color: var(--acento); }
 .detalle-alerta { background: #f6f8fc; border: 1px solid var(--borde); border-radius: 8px; padding: 12px; margin-top: 10px; }
 tr.clic { cursor: pointer; }
+
+.chat { display: flex; gap: 8px; margin: 8px 0; }
+.chat input { flex: 1; }
+.respuesta { background: #f6f8fc; border: 1px solid var(--borde); border-radius: 8px; padding: 12px; margin-top: 10px; }
+.respuesta pre { white-space: pre-wrap; font-size: 0.8rem; }

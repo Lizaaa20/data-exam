@@ -4,6 +4,7 @@ import Chart from './Chart';
 import { compacto, fechaHora, inicioUltimoAnio, money, num, pct } from './format';
 import Prediccion from './Prediccion';
 import Alertas from './Alertas';
+import Asistente from "./Asistente.jsx";
 
 const KPIS = [
   { key: 'ventas_netas', label: 'Ventas netas', fmt: (v) => money(v) },

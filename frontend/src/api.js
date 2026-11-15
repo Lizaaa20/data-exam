@@ -55,5 +55,6 @@ export const api = {
   alertas: (estado) => request('/alertas', { params: { estado } }),
   alerta: (id) => request(`/alertas/${id}`),
   cambiarEstado: (id, estado) => request(`/alertas/${id}/estado`, { method: 'POST', body: { estado } }),
+  preguntar: (pregunta) => request('/asistente', { method: 'POST', body: { pregunta } }),
 
 };
