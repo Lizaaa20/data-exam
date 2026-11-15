@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { api, ApiError } from './api';
 import Chart from './Chart';
-import { compacto, fechaHora, money, num, pct } from './format';
+import { compacto, fechaHora, inicioUltimoAnio, money, num, pct } from './format';
 
 const KPIS = [
   { key: 'ventas_netas', label: 'Ventas netas', fmt: (v) => money(v) },
@@ -70,19 +70,19 @@ export default function Dashboard({ onSalir }) {
 
   const cambiar = useCallback((c) => setFiltros((f) => ({ ...f, ...c })), []);
   const clickCategoria = useCallback((nombre) => cambiar({ categoria: nombre }), [cambiar]);
-  const clickRegion = useCallback((nombre) => cambiar({ region: nombre }), [cambiar]);
+  const clickEstado = useCallback((nombre) => cambiar({ estado: nombre }), [cambiar]);
 
-  // Metadatos iniciales (rango de fechas, categorías, regiones, última carga)
+  // Metadatos iniciales (rango de fechas, categorías, estados, última carga)
   useEffect(() => {
     Promise.all([api.filtros(), api.actualizacion()])
       .then(([m, a]) => {
         setMeta(m);
         setActualizacion(a.ultima_carga);
         setFiltros({
-          desde: m.rango_fechas.desde,
+          desde: inicioUltimoAnio(m.rango_fechas.hasta, m.rango_fechas.desde),
           hasta: m.rango_fechas.hasta,
           categoria: '',
-          region: '',
+          estado: '',
         });
       })
       .catch(manejar);
@@ -98,12 +98,12 @@ export default function Dashboard({ onSalir }) {
       api.kpis(filtros),
       api.tendencia(filtros, gran),
       api.porCategoria(filtros),
-      api.porRegion(filtros),
+      api.porEstado(filtros),
       api.topProductos(filtros),
       api.topClientes(filtros),
     ])
-      .then(([kpis, tendencia, categorias, regiones, productos, clientes]) => {
-        if (vigente) setDatos({ kpis, tendencia, categorias, regiones, productos, clientes });
+      .then(([kpis, tendencia, categorias, estados, productos, clientes]) => {
+        if (vigente) setDatos({ kpis, tendencia, categorias, estados, productos, clientes });
       })
       .catch((e) => vigente && manejar(e))
       .finally(() => vigente && setCargando(false));
@@ -144,7 +144,7 @@ export default function Dashboard({ onSalir }) {
         ],
       },
       categorias: barraH(datos.categorias, 'categoria', 'ventas_netas'),
-      regiones: barraH(datos.regiones, 'region', 'ventas_netas'),
+      estados: barraH(datos.estados, 'estado', 'ventas_netas'),
       productos: barraH(datos.productos, 'producto', 'ventas_netas'),
       clientes: barraH(datos.clientes, 'cliente', 'ventas_netas'),
     };
@@ -165,6 +165,7 @@ export default function Dashboard({ onSalir }) {
   }
 
   const cmp = datos ? datos.kpis[comparar] : null;
+  const parcial = Boolean(cmp) && cmp.desde < meta.rango_fechas.desde;
   const sinDatos = datos && datos.kpis.actual.facturas === 0;
   const paginas = detalle ? Math.max(1, Math.ceil(detalle.total / detalle.tamano)) : 1;
 
@@ -213,12 +214,12 @@ export default function Dashboard({ onSalir }) {
           </select>
         </label>
         <label>
-          Región
-          <select value={filtros.region} onChange={(e) => cambiar({ region: e.target.value })}>
-            <option value="">Todas</option>
-            {meta.regiones.map((r) => (
-              <option key={r} value={r}>
-                {r}
+          Estado
+          <select value={filtros.estado} onChange={(e) => cambiar({ estado: e.target.value })}>
+            <option value="">Todos</option>
+            {meta.estados.map((s) => (
+              <option key={s} value={s}>
+                {s}
               </option>
             ))}
           </select>
@@ -246,9 +247,9 @@ export default function Dashboard({ onSalir }) {
             Categoría: {filtros.categoria} ✕
           </button>
         )}
-        {filtros.region && (
-          <button className="chip" onClick={() => cambiar({ region: '' })}>
-            Región: {filtros.region} ✕
+        {filtros.estado && (
+          <button className="chip" onClick={() => cambiar({ estado: '' })}>
+            Estado: {filtros.estado} ✕
           </button>
         )}
       </div>
@@ -274,6 +275,8 @@ export default function Dashboard({ onSalir }) {
             </section>
             <p className="nota">
               Variación frente a {cmp.desde} – {cmp.hasta}. El margen se compara en puntos porcentuales (pp).
+              {parcial &&
+                ' El período de comparación empieza antes del primer dato disponible, por lo que la variación puede no ser comparable.'}
             </p>
 
             <div className="rejilla">
@@ -283,8 +286,8 @@ export default function Dashboard({ onSalir }) {
               <Tarjeta titulo="Ventas por categoría (clic para filtrar)" vacio={!datos.categorias.length}>
                 <Chart option={opciones.categorias} onClick={clickCategoria} />
               </Tarjeta>
-              <Tarjeta titulo="Ventas por región (clic para filtrar)" vacio={!datos.regiones.length}>
-                <Chart option={opciones.regiones} onClick={clickRegion} />
+              <Tarjeta titulo="Ventas por estado, top 15 (clic para filtrar)" vacio={!datos.estados.length}>
+                <Chart option={opciones.estados} onClick={clickEstado} altura={420} />
               </Tarjeta>
               <Tarjeta titulo="Top 10 productos" vacio={!datos.productos.length}>
                 <Chart option={opciones.productos} />
@@ -308,7 +311,7 @@ export default function Dashboard({ onSalir }) {
                       <th>Cliente</th>
                       <th>Producto</th>
                       <th>Categoría</th>
-                      <th>Región</th>
+                      <th>Estado</th>
                       <th className="der">Cant.</th>
                       <th className="der">Ventas</th>
                       <th className="der">Utilidad</th>
@@ -322,7 +325,7 @@ export default function Dashboard({ onSalir }) {
                         <td>{f.cliente}</td>
                         <td>{f.producto}</td>
                         <td>{f.categoria}</td>
-                        <td>{f.region}</td>
+                        <td>{f.estado}</td>
                         <td className="der">{num(f.cantidad)}</td>
                         <td className="der">{money(f.ventas_netas, 2)}</td>
                         <td className="der">{money(f.utilidad, 2)}</td>
