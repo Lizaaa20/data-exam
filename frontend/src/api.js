@@ -51,4 +51,5 @@ export const api = {
   detalle: (f, pagina, tamano) => request('/ventas/detalle', { params: { ...f, pagina, tamano } }),
   filtros: () => request('/meta/filtros'),
   actualizacion: () => request('/meta/ultima-actualizacion'),
+    prediccion: () => request('/prediccion'),
 };

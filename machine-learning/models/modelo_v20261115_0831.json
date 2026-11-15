@@ -1,0 +1,183 @@
+{
+  "version": "v20261115_0831",
+  "modelo": "ridge",
+  "params": {
+    "alpha": 1.0
+  },
+  "entrenamiento": "2013-01 a 2015-11",
+  "prueba": "2015-12 a 2016-05",
+  "horizontes": [
+    1,
+    2,
+    3
+  ],
+  "variables": [
+    "l0",
+    "l1",
+    "l2",
+    "roll3",
+    "estac",
+    "mes_sin",
+    "mes_cos",
+    "horizonte",
+    "cat_Clothing",
+    "cat_Computing Novelties",
+    "cat_Furry Footwear",
+    "cat_Novelty Items",
+    "cat_Packaging Materials",
+    "cat_Toys",
+    "cat_USB Novelties"
+  ],
+  "cv": [
+    {
+      "modelo": "ridge",
+      "params": "{\"alpha\": 1.0}",
+      "cv_mae": 44631.39411578541
+    },
+    {
+      "modelo": "gradient_boosting",
+      "params": "{\"learning_rate\": 0.1, \"max_depth\": 2, \"n_estimators\": 200}",
+      "cv_mae": 52393.187623912774
+    },
+    {
+      "modelo": "naive",
+      "params": "{}",
+      "cv_mae": 62036.35992063492
+    },
+    {
+      "modelo": "estacional",
+      "params": "{}",
+      "cv_mae": 67608.20952380954
+    }
+  ],
+  "prueba_resultados": [
+    {
+      "modelo": "naive",
+      "horizonte": "todos",
+      "mae": 61892.16785714287,
+      "rmse": 110310.2826050695,
+      "smape": 20.448988589896285,
+      "filas": 126
+    },
+    {
+      "modelo": "naive",
+      "horizonte": 1,
+      "mae": 60880.31309523808,
+      "rmse": 107510.23996212744,
+      "smape": 15.209077661905035,
+      "filas": 42
+    },
+    {
+      "modelo": "naive",
+      "horizonte": 2,
+      "mae": 61561.815476190466,
+      "rmse": 100078.98475712672,
+      "smape": 20.617254222640266,
+      "filas": 42
+    },
+    {
+      "modelo": "naive",
+      "horizonte": 3,
+      "mae": 63234.374999999985,
+      "rmse": 122191.73645750135,
+      "smape": 25.52063388514354,
+      "filas": 42
+    },
+    {
+      "modelo": "estacional",
+      "horizonte": "todos",
+      "mae": 78565.06309523809,
+      "rmse": 137342.21243013596,
+      "smape": 33.51908048601755,
+      "filas": 126
+    },
+    {
+      "modelo": "estacional",
+      "horizonte": 1,
+      "mae": 78565.0630952381,
+      "rmse": 137342.21243013593,
+      "smape": 33.51908048601755,
+      "filas": 42
+    },
+    {
+      "modelo": "estacional",
+      "horizonte": 2,
+      "mae": 78565.0630952381,
+      "rmse": 137342.21243013593,
+      "smape": 33.51908048601755,
+      "filas": 42
+    },
+    {
+      "modelo": "estacional",
+      "horizonte": 3,
+      "mae": 78565.0630952381,
+      "rmse": 137342.21243013593,
+      "smape": 33.51908048601755,
+      "filas": 42
+    },
+    {
+      "modelo": "ridge",
+      "horizonte": "todos",
+      "mae": 70684.30323673692,
+      "rmse": 114586.21438147168,
+      "smape": 32.98529131755185,
+      "filas": 126
+    },
+    {
+      "modelo": "ridge",
+      "horizonte": 1,
+      "mae": 66102.35344048441,
+      "rmse": 109827.31498850227,
+      "smape": 31.888798898066156,
+      "filas": 42
+    },
+    {
+      "modelo": "ridge",
+      "horizonte": 2,
+      "mae": 70682.06616043972,
+      "rmse": 114383.06190207275,
+      "smape": 32.9264750118206,
+      "filas": 42
+    },
+    {
+      "modelo": "ridge",
+      "horizonte": 3,
+      "mae": 75268.49010928666,
+      "rmse": 119350.23088018167,
+      "smape": 34.140600042768796,
+      "filas": 42
+    },
+    {
+      "modelo": "gradient_boosting",
+      "horizonte": "todos",
+      "mae": 86578.77173079953,
+      "rmse": 147732.69039623585,
+      "smape": 40.39279607866742,
+      "filas": 126
+    },
+    {
+      "modelo": "gradient_boosting",
+      "horizonte": 1,
+      "mae": 80363.65700757319,
+      "rmse": 135041.2291870097,
+      "smape": 39.621907553463295,
+      "filas": 42
+    },
+    {
+      "modelo": "gradient_boosting",
+      "horizonte": 2,
+      "mae": 90828.41535001043,
+      "rmse": 156388.07958931432,
+      "smape": 40.55182165233617,
+      "filas": 42
+    },
+    {
+      "modelo": "gradient_boosting",
+      "horizonte": 3,
+      "mae": 88544.24283481504,
+      "rmse": 150935.34515532813,
+      "smape": 41.004659030202795,
+      "filas": 42
+    }
+  ]
+}

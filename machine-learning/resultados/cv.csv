@@ -1,0 +1,5 @@
+modelo,params,cv_mae
+ridge,"{""alpha"": 10.0}",53968.19938494521
+gradient_boosting,"{""learning_rate"": 0.1, ""max_depth"": 2, ""n_estimators"": 200}",61499.66058922702
+naive,{},72375.75324074074
+estacional,{},78876.24444444446

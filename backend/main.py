@@ -307,4 +307,32 @@ def ultima_actualizacion():
     return {"ultima_carga": r["ultima_carga"]}
 
 
+@api.get("/prediccion", tags=["prediccion"])
+def prediccion():
+    run = consulta(
+        "SELECT TOP 1 ModelVersion, ModelName, TrainedAt, TrainRange, TestRange, MaeTest, RmseTest, "
+        "SmapeTest, BaselineName, BaselineMaeTest FROM dw.ModelRun ORDER BY TrainedAt DESC"
+    )
+    if not run:
+        return {"modelo": None, "historico": [], "pronostico": []}
+    m = run[0]
+    pron = consulta(
+        "SELECT Category AS categoria, TargetMonth AS mes, HorizonMonths AS horizonte, "
+        "PredictedSales AS ventas_predichas FROM dw.PredictedSales WHERE ModelVersion = ? "
+        "ORDER BY TargetMonth, Category",
+        [m["ModelVersion"]],
+    )
+    # El histórico suma solo las categorías que el modelo pronostica, para que la línea sea comparable
+    hist = consulta(
+        "SELECT d.YearMonth AS mes, SUM(f.NetSalesAmount) AS ventas_netas "
+        "FROM dw.FactSales f "
+        "JOIN dw.DimDate d ON d.DateKey = f.DateKey "
+        "JOIN dw.DimProduct p ON p.ProductKey = f.ProductKey "
+        "WHERE p.PrimaryCategory IN (SELECT Category FROM dw.PredictedSales WHERE ModelVersion = ?) "
+        "GROUP BY d.YearMonth ORDER BY d.YearMonth",
+        [m["ModelVersion"]],
+    )
+    return {"modelo": m, "historico": hist, "pronostico": pron}
+
+
 app.include_router(api)

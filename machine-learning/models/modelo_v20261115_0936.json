@@ -1,0 +1,198 @@
+{
+  "version": "v20261115_0936",
+  "modelo": "ridge",
+  "params": {
+    "alpha": 10.0
+  },
+  "entrenamiento": "2013-01 a 2015-11",
+  "prueba": "2015-12 a 2016-05",
+  "horizontes": [
+    1,
+    2,
+    3
+  ],
+  "variables": [
+    "l0",
+    "l1",
+    "l2",
+    "roll3",
+    "estac",
+    "mes_sin",
+    "mes_cos",
+    "horizonte",
+    "cat_Clothing",
+    "cat_Computing Novelties",
+    "cat_Furry Footwear",
+    "cat_Packaging Materials",
+    "cat_Toys",
+    "cat_USB Novelties"
+  ],
+  "cv": [
+    {
+      "modelo": "ridge",
+      "params": "{\"alpha\": 10.0}",
+      "cv_mae": 53968.19938494521
+    },
+    {
+      "modelo": "gradient_boosting",
+      "params": "{\"learning_rate\": 0.1, \"max_depth\": 2, \"n_estimators\": 200}",
+      "cv_mae": 61499.66058922702
+    },
+    {
+      "modelo": "naive",
+      "params": "{}",
+      "cv_mae": 72375.75324074074
+    },
+    {
+      "modelo": "estacional",
+      "params": "{}",
+      "cv_mae": 78876.24444444446
+    }
+  ],
+  "prueba_resultados": [
+    {
+      "modelo": "naive",
+      "horizonte": "todos",
+      "mae": 58300.22916666668,
+      "rmse": 107523.79879567133,
+      "smape": 11.85583212161343,
+      "sesgo_pct": -1.6819683944068329,
+      "filas": 108
+    },
+    {
+      "modelo": "naive",
+      "horizonte": 1,
+      "mae": 63072.298611111095,
+      "rmse": 110044.94392507663,
+      "smape": 11.320847501844792,
+      "sesgo_pct": -2.447690240879446,
+      "filas": 36
+    },
+    {
+      "modelo": "naive",
+      "horizonte": 2,
+      "mae": 58214.11805555555,
+      "rmse": 95916.29189708461,
+      "smape": 12.040485602894936,
+      "sesgo_pct": -1.7869507424039397,
+      "filas": 36
+    },
+    {
+      "modelo": "naive",
+      "horizonte": 3,
+      "mae": 53614.27083333332,
+      "rmse": 115647.21002945138,
+      "smape": 12.20616326010057,
+      "sesgo_pct": -0.8112641999371123,
+      "filas": 36
+    },
+    {
+      "modelo": "estacional",
+      "horizonte": "todos",
+      "mae": 59922.70694444446,
+      "rmse": 121285.58851979084,
+      "smape": 11.327816122576156,
+      "sesgo_pct": 4.217002455162572,
+      "filas": 108
+    },
+    {
+      "modelo": "estacional",
+      "horizonte": 1,
+      "mae": 59922.70694444445,
+      "rmse": 121285.58851979084,
+      "smape": 11.327816122576156,
+      "sesgo_pct": 4.217002455162571,
+      "filas": 36
+    },
+    {
+      "modelo": "estacional",
+      "horizonte": 2,
+      "mae": 59922.70694444445,
+      "rmse": 121285.58851979084,
+      "smape": 11.327816122576156,
+      "sesgo_pct": 4.217002455162571,
+      "filas": 36
+    },
+    {
+      "modelo": "estacional",
+      "horizonte": 3,
+      "mae": 59922.70694444445,
+      "rmse": 121285.58851979084,
+      "smape": 11.327816122576156,
+      "sesgo_pct": 4.217002455162571,
+      "filas": 36
+    },
+    {
+      "modelo": "ridge",
+      "horizonte": "todos",
+      "mae": 50994.38567978539,
+      "rmse": 89126.18195732457,
+      "smape": 11.052949576510352,
+      "sesgo_pct": 4.339392221658418,
+      "filas": 108
+    },
+    {
+      "modelo": "ridge",
+      "horizonte": 1,
+      "mae": 45964.89464390068,
+      "rmse": 82477.72135819665,
+      "smape": 9.819340064202455,
+      "sesgo_pct": 3.205346963412153,
+      "filas": 36
+    },
+    {
+      "modelo": "ridge",
+      "horizonte": 2,
+      "mae": 51501.58442907932,
+      "rmse": 89113.9204733565,
+      "smape": 11.018194342005245,
+      "sesgo_pct": 4.15221358943911,
+      "filas": 36
+    },
+    {
+      "modelo": "ridge",
+      "horizonte": 3,
+      "mae": 55516.677966376155,
+      "rmse": 95323.46819277172,
+      "smape": 12.32131432332336,
+      "sesgo_pct": 5.6606161121239875,
+      "filas": 36
+    },
+    {
+      "modelo": "gradient_boosting",
+      "horizonte": "todos",
+      "mae": 67717.4446779916,
+      "rmse": 130361.25683638277,
+      "smape": 13.530894973261438,
+      "sesgo_pct": 7.064555684695413,
+      "filas": 108
+    },
+    {
+      "modelo": "gradient_boosting",
+      "horizonte": 1,
+      "mae": 62293.68134291761,
+      "rmse": 118264.80296028893,
+      "smape": 12.902189713883624,
+      "sesgo_pct": 6.752750061861717,
+      "filas": 36
+    },
+    {
+      "modelo": "gradient_boosting",
+      "horizonte": 2,
+      "mae": 69872.19471785339,
+      "rmse": 130303.26354864694,
+      "smape": 13.607437678897497,
+      "sesgo_pct": 7.08270292815822,
+      "filas": 36
+    },
+    {
+      "modelo": "gradient_boosting",
+      "horizonte": 3,
+      "mae": 70986.45797320385,
+      "rmse": 141480.27332889897,
+      "smape": 14.08305752700319,
+      "sesgo_pct": 7.358214064066301,
+      "filas": 36
+    }
+  ]
+}

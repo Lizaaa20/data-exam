@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { api, ApiError } from './api';
 import Chart from './Chart';
 import { compacto, fechaHora, inicioUltimoAnio, money, num, pct } from './format';
+import Prediccion from './Prediccion';
 
 const KPIS = [
   { key: 'ventas_netas', label: 'Ventas netas', fmt: (v) => money(v) },
@@ -299,6 +300,7 @@ export default function Dashboard({ onSalir }) {
           </>
         )}
 
+        <Prediccion />
         <Tarjeta titulo="Detalle de ventas" vacio={detalle && detalle.total === 0}>
           {detalle && (
             <>
