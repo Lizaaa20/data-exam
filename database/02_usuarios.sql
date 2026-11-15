@@ -42,3 +42,12 @@ IF USER_ID('api_reader') IS NULL CREATE USER api_reader FOR LOGIN api_reader;
 GRANT SELECT ON audit.etl_run TO api_reader;
 GO
 
+SELECT name, is_disabled FROM sys.server_principals WHERE name = 'api_reader';
+
+USE WWI_DW;
+SELECT dp.name, r.name AS rol
+FROM sys.database_principals dp
+LEFT JOIN sys.database_role_members m ON m.member_principal_id = dp.principal_id
+LEFT JOIN sys.database_principals r ON r.principal_id = m.role_principal_id
+WHERE dp.name = 'api_reader';
+
