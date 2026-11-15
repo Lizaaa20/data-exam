@@ -340,3 +340,7 @@ app.include_router(api)
 from asistente import crear_router  # noqa: E402
 
 app.include_router(crear_router(consulta, usuario_actual))
+
+from alertas import crear_router as crear_router_alertas  # noqa: E402
+
+app.include_router(crear_router_alertas(consulta, usuario_actual))

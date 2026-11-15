@@ -51,5 +51,9 @@ export const api = {
   detalle: (f, pagina, tamano) => request('/ventas/detalle', { params: { ...f, pagina, tamano } }),
   filtros: () => request('/meta/filtros'),
   actualizacion: () => request('/meta/ultima-actualizacion'),
-    prediccion: () => request('/prediccion'),
+  prediccion: () => request('/prediccion'),
+  alertas: (estado) => request('/alertas', { params: { estado } }),
+  alerta: (id) => request(`/alertas/${id}`),
+  cambiarEstado: (id, estado) => request(`/alertas/${id}/estado`, { method: 'POST', body: { estado } }),
+
 };

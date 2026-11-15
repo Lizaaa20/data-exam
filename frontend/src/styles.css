@@ -58,3 +58,10 @@ th { color: var(--suave); font-weight: 600; }
 @media (max-width: 520px) {
   .rejilla { grid-template-columns: 1fr; }
 }
+
+.sev { font-weight: 700; padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; }
+.sev-alta { background: #fdecea; color: var(--neg); }
+.sev-media { background: #fff4e0; color: #b25e00; }
+.sev-baja { background: #eef3ff; color: var(--acento); }
+.detalle-alerta { background: #f6f8fc; border: 1px solid var(--borde); border-radius: 8px; padding: 12px; margin-top: 10px; }
+tr.clic { cursor: pointer; }

@@ -3,14 +3,15 @@ import subprocess
 import sys
 import time
 
-ETAPAS = ["carga_incremental.py", "limpiar_ventas.py", "cargar_dw.py"]
+RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ETAPAS = ["etl/carga_incremental.py", "etl/limpiar_ventas.py", "etl/cargar_dw.py",
+          "notifications/evaluar_alertas.py"]
 REINTENTOS = 2
-aqui = os.path.dirname(os.path.abspath(__file__))
 
 for etapa in ETAPAS:
     for intento in range(1, REINTENTOS + 1):
         print(f"\n=== {etapa} (intento {intento}/{REINTENTOS}) ===", flush=True)
-        r = subprocess.run([sys.executable, os.path.join(aqui, etapa)], cwd=os.path.dirname(aqui))
+        r = subprocess.run([sys.executable, os.path.join(RAIZ, etapa)], cwd=RAIZ)
         if r.returncode == 0:
             break
         time.sleep(5)

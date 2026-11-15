@@ -40,6 +40,11 @@ services:
     volumes:
       - ollama_models:/root/.ollama
 
+  mailpit:
+    image: axllent/mailpit
+    ports:
+      - "8025:8025"
+
 volumes:
   web_node_modules:
   ollama_models:
