@@ -35,13 +35,11 @@ services:
       - "5173:5173"
     command: sh -c "npm install && npm run dev"
 
-    ollama:
+  ollama:
     image: ollama/ollama
     volumes:
       - ollama_models:/root/.ollama
 
-  volumes:
+volumes:
   web_node_modules:
-   ollama_models:
-
- 
+  ollama_models:
