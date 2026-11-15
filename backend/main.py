@@ -46,7 +46,7 @@ def consulta(sql: str, params=(), db: str = "WWI_DW") -> list[dict]:
             f"SERVER={os.getenv('MSSQL_HOST')},{os.getenv('MSSQL_PORT')};DATABASE={db};"
             f"UID={os.getenv('MSSQL_API_USER')};PWD={os.getenv('MSSQL_API_PASSWORD')};"
             "TrustServerCertificate=yes;",
-            timeout=10,
+            timeout=30,
         )
     except pyodbc.Error:
         log.exception("No se pudo conectar a %s", db)
@@ -336,3 +336,7 @@ def prediccion():
 
 
 app.include_router(api)
+
+from asistente import crear_router  # noqa: E402
+
+app.include_router(crear_router(consulta, usuario_actual))

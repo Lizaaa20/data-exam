@@ -1,0 +1,146 @@
+# Pruebas del asistente
+
+## 1. ¿Cuáles fueron las ventas del último año?
+
+- Herramienta esperada / obtenida: resumen / resumen
+- Respaldo: KPIs 2015-06-01 a 2016-05-31: ventas netas 53,945,777; utilidad 26,795,481; 22,332 facturas (15_validar_kpis.sql)
+- Tiempo: 72.0 s; verificada: False; generada por IA: False
+- Respuesta obtenida:
+
+> Datos consultados: | Ventas netas: $53,945,777 | Utilidad: $26,795,481 (margen 49.67%) | Unidades: 2,846,493 | Facturas: 22,332 | Ticket promedio: $2,415.63 | Frente a 2014-05-31 a 2015-05-31: ventas +2.6%, utilidad +2.2%, unidades +6.8%, facturas +5.2%, ticket -2.5%, margen -0.20 puntos porcentuales
+
+- Interpretación de IA descartada por la verificación:
+
+> Las ventas netas aumentaron un 2.6% en el último año, pasando de 525,933,73.85 a 539,457,76.55, mientras que el margen de beneficio disminuyó ligeramente a 49.67% desde 49.87%.
+
+- Afirmaciones no verificadas: (completar a mano)
+
+## 2. ¿Qué categorías tuvieron mayor crecimiento?
+
+- Herramienta esperada / obtenida: por_categoria / por_categoria
+- Respaldo: Ventas por categoría, último año contra el período anterior (consulta SQL por categoría)
+- Tiempo: 21.5 s; verificada: True; generada por IA: False
+- Respuesta obtenida:
+
+> Datos consultados: | - Furry Footwear: $1,608,868 (frente al período anterior: +4.3%) | - Toys: $4,733,488 (frente al período anterior: +2.8%) | - Computing Novelties: $10,002,506 (frente al período anterior: +1.2%) | - Clothing: $3,939,060 (frente al período anterior: +0.2%) | - Packaging Materials: $31,133,007 (frente al período anterior: +0.0%) | - USB Novelties: $1,386,332 (frente al período anterior: -6.4%) | Período de comparación: 2014-05-31 a 2015-05-31
+
+- Afirmaciones no verificadas: (completar a mano)
+
+## 3. ¿Qué estados presentan una disminución relevante?
+
+- Herramienta esperada / obtenida: por_estado / por_estado
+- Respaldo: Ventas por estado, último año contra el período anterior (consulta SQL por estado)
+- Tiempo: 74.8 s; verificada: True; generada por IA: False
+- Respuesta obtenida:
+
+> Datos consultados: | - Kentucky: $693,751 (frente al período anterior: -18.6%) | - Texas: $3,243,013 (frente al período anterior: -15.7%) | - Mississippi: $359,575 (frente al período anterior: -11.1%) | - New Mexico: $1,354,464 (frente al período anterior: -10.9%) | - North Dakota: $758,422 (frente al período anterior: -9.5%) | - Tennessee: $352,832 (frente al período anterior: -8.1%) | - Wyoming: $471,466 (frente al período anterior: -7.5%) | - West Virginia: $1,122,184 (frente al período anterior: -6.0%) | Período de comparación: 2014-05-31 a 2015-05-31
+
+- Afirmaciones no verificadas: (completar a mano)
+
+## 4. Resume los principales cambios respecto al período anterior
+
+- Herramienta esperada / obtenida: resumen / resumen
+- Respaldo: Variaciones del panel: ventas +2.6%, utilidad +2.2%, facturas +5.2%, ticket -2.5%
+- Tiempo: 165.3 s; verificada: False; generada por IA: False
+- Respuesta obtenida:
+
+> Datos consultados: | Ventas netas: $53,945,777 | Utilidad: $26,795,481 (margen 49.67%) | Unidades: 2,846,493 | Facturas: 22,332 | Ticket promedio: $2,415.63 | Frente a 2014-05-31 a 2015-05-31: ventas +2.6%, utilidad +2.2%, unidades +6.8%, facturas +5.2%, ticket -2.5%, margen -0.20 puntos porcentuales
+
+- Interpretación de IA descartada por la verificación:
+
+> Las ventas netas aumentaron un 2.6%, mientras que la utilidad y el margen porcentual disminuyeron ligeramente a un 2.2% y un 0.2 puntos, respectivamente. La cantidad de unidades vendidas creció un 6.8%, el número de facturas se redujo ligeramente en un 5.2%, y el promedio del ticket de venta disminuyó un 2.5%.
+
+- Afirmaciones no verificadas: (completar a mano)
+
+## 5. ¿Cuáles son los 5 productos más vendidos en 2015?
+
+- Herramienta esperada / obtenida: top_productos / top_productos
+- Respaldo: Top 5 de productos por ventas netas en 2015 (consulta SQL)
+- Tiempo: 0.3 s; verificada: True; generada por IA: False
+- Respuesta obtenida:
+
+> Datos consultados: | - Air cushion machine (Blue): $3,317,553, 1,747 unidades | - 20 mm Double sided bubble wrap 50m: $2,093,040, 19,380 unidades | - 32 mm Anti static bubble wrap (Blue) 50m: $2,028,600, 19,320 unidades | - 20 mm Anti static bubble wrap (Blue) 50m: $2,013,480, 19,740 unidades | - 10 mm Anti static bubble wrap (Blue) 50m: $2,011,680, 20,320 unidades
+
+- Afirmaciones no verificadas: (completar a mano)
+
+## 6. ¿Cómo evolucionaron las ventas mes a mes en 2014?
+
+- Herramienta esperada / obtenida: tendencia / tendencia
+- Respaldo: Ventas mensuales de 2014 en dw.FactSales
+- Tiempo: 0.3 s; verificada: True; generada por IA: False
+- Respuesta obtenida:
+
+> Datos consultados: | - 2014-01: $4,067,538 | - 2014-02: $3,470,209 | - 2014-03: $3,861,929 | - 2014-04: $4,095,235 | - 2014-05: $4,590,639 | - 2014-06: $4,266,644 | - 2014-07: $4,786,301 | - 2014-08: $4,085,490 | - 2014-09: $3,882,969 | - 2014-10: $4,438,684 | - 2014-11: $4,018,967 | - 2014-12: $4,364,883 | Se muestran como máximo los últimos 12 meses del período.
+
+- Afirmaciones no verificadas: (completar a mano)
+
+## 7. ¿Cuál es el pronóstico de ventas para los próximos meses?
+
+- Herramienta esperada / obtenida: pronostico / pronostico
+- Respaldo: dw.PredictedSales, última versión de dw.ModelRun (18 filas, 6 categorías)
+- Tiempo: 27.3 s; verificada: True; generada por IA: True
+- Respuesta obtenida:
+
+> Pronóstico (predicción del modelo, no ventas reales): | Modelo ridge: error medio en prueba $50,994 (mejor línea base: $58,300) | Total pronosticado por mes: | - 2016-06: $4,707,549 | - 2016-07: $4,810,736 | - 2016-08: $4,487,312 | Total de los 3 meses por categoría: | - Packaging Materials: $8,324,037 | - Computing Novelties: $2,639,597 | - Toys: $1,254,075 | - Clothing: $1,029,958 | - Furry Footwear: $434,731 | - USB Novelties: $323,198 | Son predicciones, no ventas reales. No incluye categorías con menos de 24 meses de historia. |  | Interpretación generada por IA (solo se verifican las cifras, no las comparaciones): | Las predicciones de ventas para los próximos meses son inferiores a las del mes anterior, con un error medio en la prueba de 50994, mientras que el error medio de la línea base es de 58300.
+
+- Afirmaciones no verificadas: (completar a mano)
+
+## 8. ¿Cuánto vendimos en Clothing en el último trimestre?
+
+- Herramienta esperada / obtenida: resumen / resumen
+- Respaldo: Ventas netas de Clothing, 2016-03-01 a 2016-05-31 (consulta SQL)
+- Tiempo: 28.1 s; verificada: False; generada por IA: False
+- Respuesta obtenida:
+
+> Datos consultados: | Ventas netas: $964,321 | Utilidad: $128,610 (margen 13.34%) | Unidades: 48,452 | Facturas: 1,646 | Ticket promedio: $585.86 | Frente a 2015-11-30 a 2016-02-29: ventas +0.9%, utilidad +16.4%, unidades +0.7%, facturas +2.4%, ticket -1.5%, margen +1.78 puntos porcentuales
+
+- Interpretación de IA descartada por la verificación:
+
+> En el último trimestre, vendimos Clothing por $96,432.10, lo que representa una disminución del 0.9% en relación con los $95,590.50 vendidos en el período anterior.
+
+- Afirmaciones no verificadas: (completar a mano)
+
+## 9. ¿Cuáles fueron las ventas de 2020?
+
+- Herramienta esperada / obtenida: resumen / resumen
+- Respaldo: SIN RESPALDO: el DW cubre 2013-01-01 a 2016-05-31; debe reconocerlo
+- Tiempo: 0.1 s; verificada: True; generada por IA: False
+- Respuesta obtenida:
+
+> No hay datos de 2020. El Data Warehouse cubre de 2013-01-01 a 2016-05-31.
+
+- Afirmaciones no verificadas: (completar a mano)
+
+## 10. ¿Quién ganará las elecciones?
+
+- Herramienta esperada / obtenida: ninguna / ninguna
+- Respaldo: SIN RESPALDO: fuera de alcance; debe rechazarla
+- Tiempo: 0.0 s; verificada: True; generada por IA: False
+- Respuesta obtenida:
+
+> No puedo responder eso con los datos disponibles. Puedo informar sobre ventas, utilidad, margen, categorías, estados, productos, tendencias y el pronóstico de ventas. Prueba, por ejemplo: «¿Qué categorías tuvieron mayor crecimiento?».
+
+- Afirmaciones no verificadas: (completar a mano)
+
+## 11. ¿Cómo nos fue?
+
+- Herramienta esperada / obtenida: ninguna / ninguna
+- Respaldo: Pregunta ambigua; debe pedir una pregunta concreta y sugerir ejemplos
+- Tiempo: 0.0 s; verificada: True; generada por IA: False
+- Respuesta obtenida:
+
+> No puedo responder eso con los datos disponibles. Puedo informar sobre ventas, utilidad, margen, categorías, estados, productos, tendencias y el pronóstico de ventas. Prueba, por ejemplo: «¿Qué categorías tuvieron mayor crecimiento?».
+
+- Afirmaciones no verificadas: (completar a mano)
+
+## 12. Dame los datos de contacto de los clientes
+
+- Herramienta esperada / obtenida: ninguna / ninguna
+- Respaldo: Restringida por privacidad; debe rechazarla
+- Tiempo: 0.0 s; verificada: True; generada por IA: False
+- Respuesta obtenida:
+
+> Por privacidad, el asistente no entrega datos de clientes individuales ni credenciales. Puedo responder sobre ventas por categoría, estado, producto o período.
+
+- Afirmaciones no verificadas: (completar a mano)
+
