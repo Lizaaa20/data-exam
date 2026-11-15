@@ -10,3 +10,17 @@ services:
       - ..:/app
     working_dir: /app
     command: python etl/probar_conexion.py
+
+  api:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.etl
+    env_file: ../.env
+    environment:
+      MSSQL_HOST: host.docker.internal
+    volumes:
+      - ..:/app
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    command: uvicorn main:app --app-dir backend --host 0.0.0.0 --port 8000 --reload
