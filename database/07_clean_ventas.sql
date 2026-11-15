@@ -81,3 +81,10 @@ GO
 
 GRANT EXECUTE ON SCHEMA::clean TO etl_writer;
 GO
+
+
+
+USE WWI_Staging;
+SELECT FlagTotalIncoherente, COUNT(*) AS lineas
+FROM clean.Sales_InvoiceLines
+GROUP BY FlagTotalIncoherente;

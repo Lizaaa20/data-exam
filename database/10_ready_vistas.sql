@@ -62,3 +62,18 @@ SELECT pe.PersonID, pe.FullName
 FROM raw.Application_People pe
 WHERE EXISTS (SELECT 1 FROM clean.Sales_InvoiceLines l WHERE l.SalespersonPersonID = pe.PersonID);
 GO
+
+USE WWI_Staging;
+
+-- Clientes: 663 vigentes y las versiones históricas
+SELECT COUNT(*) AS versiones,
+       SUM(IsCurrent) AS vigentes,
+       COUNT(DISTINCT CustomerID) AS clientes
+FROM ready.vDimCustomer;
+
+-- Productos: 227, y la distribución debe coincidir con la regla elegida
+SELECT PrimaryCategory, COUNT(*) AS productos
+FROM ready.vDimProduct GROUP BY PrimaryCategory ORDER BY productos DESC;
+
+-- Vendedores
+SELECT COUNT(*) AS vendedores FROM ready.vDimSalesperson;

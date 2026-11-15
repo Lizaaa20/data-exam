@@ -35,3 +35,23 @@ ORDER BY InvoiceLineID;                                                         
 GO
 
 SELECT COUNT(*) AS lineas_en_raw FROM raw.Sales_InvoiceLines;   -- esperado: 228272
+
+USE WWI_Staging;
+
+-- Qué se rechazó y por qué regla
+SELECT rule_name, COUNT(*) AS filas
+FROM quarantine.rejected_rows
+WHERE execution_id = (SELECT MAX(execution_id) FROM audit.etl_run WHERE pipeline_name = 'clean_sales')
+GROUP BY rule_name
+ORDER BY rule_name;
+
+-- Detalle de cada rechazo
+SELECT source_key, rule_name, detail
+FROM quarantine.rejected_rows
+WHERE execution_id = (SELECT MAX(execution_id) FROM audit.etl_run WHERE pipeline_name = 'clean_sales')
+ORDER BY rule_name;
+
+-- La línea marcada (pasa, pero con flag)
+SELECT InvoiceLineID, ExtendedPrice, Quantity * UnitPrice + TaxAmount AS total_esperado, FlagTotalIncoherente
+FROM clean.Sales_InvoiceLines
+WHERE FlagTotalIncoherente = 1;
